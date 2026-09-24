@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANORA — Digital Insurance нового поколения</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-milk: #FBF9F5;
+            --white: #FFFFFF;
+            --deep-blue: #0A192F;
+            --soft-blue: #3B82F6;
+            --light-blue: #E0F2FE;
+            --gold: #D4AF37;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-milk);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--deep-blue);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 25px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--soft-blue);
+        }
+
+        .btn-primary {
+            background-color: var(--deep-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            border: 1px solid var(--deep-blue);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--deep-blue);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 90px 8%;
+            background: linear-gradient(135deg, var(--bg-milk) 0%, var(--light-blue) 100%);
+            min-height: 80vh;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #9A7B0C;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--deep-blue);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .hero-card {
+            background: var(--deep-blue);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            border: 4px solid var(--gold);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
+            min-width: 300px;
+        }
+
+        .hero-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero-card p {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+        /* Sections General */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--deep-blue);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--white);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-milk);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-color: var(--gold);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--deep-blue);
+            margin-bottom: 10px;
+        }
+
+        .card .price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--soft-blue);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Tech Section */
+        .tech {
+            background: var(--deep-blue);
+            color: var(--white);
+        }
+
+        .tech .section-title h2 {
+            color: var(--white);
+        }
+
+        .tech .section-title p {
+            color: #94A3B8;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .tech-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tech-card h4 {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .tech-card p {
+            color: #94A3B8;
+            font-size: 14px;
+        }
+
+        /* Future / Timeline Section */
+        .future {
+            background: var(--bg-milk);
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--gold);
+        }
+
+        .timeline-item h4 {
+            font-size: 20px;
+            color: var(--deep-blue);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--deep-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            color: #94A3B8;
+            margin-bottom: 25px;
+        }
+
+        .phone-number {
+            font-size: 36px;
+            color: var(--gold);
+            font-weight: 700;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .phone-number:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #06101E;
+            color: #94A3B8;
+            padding: 40px 8%;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        @media(max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 5%;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">J A N O R A <span>✦</span></div>
+        <nav>
+            <a href="#products">Өнімдер</a>
+            <a href="#tech">Технологиялар</a>
+            <a href="#future">Болашақ</a>
+            <a href="#contact">Байланыс</a>
+        </nav>
+        <a href="tel:87787757564" class="btn-primary">Қоңырау шалу</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Digital Insurance нового поколения</div>
+            <h1>Твоя защита. Твоя свобода.</h1>
+            <p>Забудьте про бумажную волокиту и очереди. Оформляйте страховку за пару кликов полностью онлайн через мобильное приложение JANORA.</p>
+            <a href="#products" class="btn-primary">Тарифтерді қарау</a>
+        </div>
+        <div class="hero-card">
+            <h3>JANORA App</h3>
+            <p>Цифровое страхование в вашем смартфоне</p>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Сақтандыру өнімдері мен бағалар</h2>
+            <p>Өзіңізге және жақындарыңызға қажетті қорғанысты таңдаңыз</p>
+        </div>
+        <div class="grid-cards">
+            <div class="card">
+                <h3>Travel Protect</h3>
+                <div class="price">от 2 500 ₸</div>
+                <p>Саяхат кезіндегі толық медициналық және сервистік қорғаныс.</p>
+            </div>
+            <div class="card">
+                <h3>Health Basic</h3>
+                <div class="price">от 5 000 ₸/ай</div>
+                <p>Денсаулықты базалық сақтандыру және онлайн дәрігер кеңесі.</p>
+            </div>
+            <div class="card">
+                <h3>Home Protect</h3>
+                <div class="price">от 3 500 ₸/ай</div>
+                <p>Пәтеріңізді өрттен, су басудан және басқа да тәуекелдерден қорғау.</p>
+            </div>
+            <div class="card">
+                <h3>Auto Protect</h3>
+                <div class="price">от 12 000 ₸/ай</div>
+                <p>Көлігіңізге арналған сенімді цифрлық каско және ОСГО.</p>
+            </div>
+            <div class="card">
+                <h3>Accident Safe</h3>
+                <div class="price">от 2 000 ₸/ай</div>
+                <p>Кез келген жазатайым оқиғалардан қаржылай қолдау.</p>
+            </div>
+            <div class="card">
+                <h3>Cyber Safe</h3>
+                <div class="price">от 3 000 ₸/ай</div>
+                <p>Цифрлық және киберқауіптерден, алаяқтықтан қорғаныс.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech" id="tech">
+        <div class="section-title">
+            <h2>Озық технологиялар</h2>
+            <p>JANORA сіздің қауіпсіздігіңіз үшін жасанды интеллект пен Big Data қолданады</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h4>Artificial Intelligence</h4>
+                <p>Виртуалды көмекші және өтінімдерді лезде автоматты түрде өңдеу.</p>
+            </div>
+            <div class="tech-card">
+                <h4>Big Data</h4>
+                <p>Тәуекелдерді дәл бағалау және әр клиентке жеке тариф құру.</p>
+            </div>
+            <div class="tech-card">
+                <h4>IoT Integration</h4>
+                <p>Автомобиль датчиктері мен смарт құрылғылардан деректерді алу.</p>
+            </div>
+            <div class="tech-card">
+                <h4>Cybersecurity</h4>
+                <p>Сіздің дербес деректеріңіз бен төлемдеріңіздің қатаң қорғалуы.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="future" id="future">
+        <div class="section-title">
+            <h2>Даму жоспары</h2>
+            <p>JANORA компаниясының алға қойған мақсаттары</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>2026</h4>
+                <p>Мобильді қосымшаны және базалық сақтандыру өнімдерін іске қосу.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2027</h4>
+                <p>AI-консультантты дамыту және жекелендірілген тарифтерді енгізу.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2028</h4>
+                <p>Серіктестік желіні кеңейту және корпоративтік сақтандыру.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>2029</h4>
+                <p>Орталық Азия елдерінің нарығына шығу.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Бізбен байланысыңыз</h2>
+        <p>Сұрақтарыңыз бар ма? Біздің менеджерлер сізге көмектесуге әрқашан дайын.</p>
+        <a href="tel:87787757564" class="phone-number">+7 (778) 775-75-64</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 <span>JANORA</span> Digital Insurance. Барлық құқықтар қорғалған. Қазақстан, Алматы қ.</p>
+    </footer>
+
+</body>
+</html>
